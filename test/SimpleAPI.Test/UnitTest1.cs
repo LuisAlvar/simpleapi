@@ -19,10 +19,5 @@ namespace SimpleAPI.Test
             Assert.IsType<string>(obj.Summary);
         }
 
-        [Fact]
-        public void Test1()
-        {
-
-        }
     }
 }
