@@ -33,7 +33,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLIXUNIT@1
+- task: DotNetCoreCLI@2
   inputs: 
     command: test
     projects: '**/*Test/*.csproj'
