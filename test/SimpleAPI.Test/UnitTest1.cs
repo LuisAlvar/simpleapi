@@ -17,6 +17,7 @@ namespace SimpleAPI.Test
             Assert.IsType<int>(obj.TemperatureC);
             Assert.IsType<int>(obj.TemperatureF);
             Assert.IsType<string>(obj.Summary);
+            Assert.NotEmpty(obj.Summary);
         }
 
     }
