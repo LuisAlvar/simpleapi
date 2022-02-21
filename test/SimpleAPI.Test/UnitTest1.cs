@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using SimpleAPI.Controllers;
+using Microsoft.AspNetCore.Mvc.Core;
 
 namespace SimpleAPI.Test
 {
@@ -9,14 +10,19 @@ namespace SimpleAPI.Test
         WeatherForecastController _controller = new WeatherForecastController();
 
         [Fact]
-        public void GetReturnsMyForecast()
+        public void TestOneItem()
         {
-            var returnValue = _controller.GetFirst();
+            var obj = _controller.GetFirst();
+            Assert.IsType<DateTime>(obj.Date);
+            Assert.IsType<int>(obj.TemperatureC);
+            Assert.IsType<int>(obj.TemperatureF);
+            Assert.IsType<string>(obj.Summary);
+        }
 
-            Assert.IsType<DateTime>(returnValue.Date);
-            Assert.IsType<int>(returnValue.TemperatureC);
-            Assert.IsType<int>(returnValue.TemperatureF);
-            Assert.IsType<string>(returnValue.Summary);
+        [Fact]
+        public void Test1()
+        {
+
         }
     }
 }
