@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/alvarezenluis/Simple%20API/_apis/build/status/LuisAlvar.simpleapi?branchName=main)](https://dev.azure.com/alvarezenluis/Simple%20API/_build/latest?definitionId=4&branchName=main)
+
 # simpleapi
 Azure Devops Example: deploying a webapi template for future reference
 # Azure Devops: Continuous Deployment (Maunally Version)
