@@ -48,6 +48,14 @@ Azure Devops will run the configured pipeline, and commit the azure-pipeline fil
 If successful, then we add our xunit testing to the pipeline. Follow the instruction on this site [https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops&tabs=dotnetfive]. Edit for xunit testing local on your Visual Studio Code window. Then, follow the basic git command steps to push your changes to 
 GitHub. 
 
+```yaml
+- task: DotNetCoreCLI@2
+  inputs: 
+    command: test
+    projects: '**/*Test/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+```
+
 ```bash
 git add . 
 git commit -m "add/mod xunit test case #3242345"
@@ -77,14 +85,14 @@ Next add the following to your azure-pipeline.yaml file
 Push all changes to git. 
 
 # Azure: API App: Service 
-Create an API App serivce: make sure you select the DEV/TEST F1 service tier 
+Create an API App serivce: make sure you select the DEV/TEST F1 service tier.
 Next, once API App service is deploy. Go to **Azure DevOps** > **Pipelines** > **Releases**.
 Create a new release pipeline, go through the process and rename the stage. 
 Under the main stage, select the job agent to be Azure App Service Deploy. 
 Select your Azure subscription, under App Service type: API App, App Service name of your webapi site, resource group the check your Azure portal for such information
 if its not auto populated already, hit save. 
 Under Artifacts, select > LuisAlvar.simpleapi, latest for version and save. 
-Next to your artifcat there is an icon, hit on it and enable **Co9ntinuous deployment trigger**
+Next to your artifcat there is an icon, hit on it and enable **Continuous deployment trigger**
 Final test, make a change to your project, then push the changes. 
 Expections are the the git push will tigger the azure pipeline to start, and then release pipeline will kick-off. 
 - If successfully, then you can access your https://[yourazuresite].net/WeatherForecast api and data should appear on your window. 
